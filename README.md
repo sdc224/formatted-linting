@@ -1,12 +1,12 @@
 # formatted-linting
 
-The `formatted-linting` is baced on [CLIEngine API](https://eslint.org/docs/developer-guide/nodejs-api#cliengine) and does only one thing - prints a friendly message when ESLint has finished without any errors.
+The `formatted-linting` is based on [CLIEngine API](https://eslint.org/docs/developer-guide/nodejs-api#cliengine) and does only one thing - prints a friendly message when ESLint has finished without any errors.
 
 ![formatted-linting](./formatted-linting.png)
 
 This is sample project from [How to format ESLint output](https://medium.com/) blogpost, therefore it won't be published at npm.
 
-To run it loccaly use npm package linking mechanism.
+To run it locally use npm package linking mechanism.
 
 ```
 cd ~/projects/formatted-linting              # go into the package directory
@@ -34,7 +34,7 @@ Where:
 - `--ext` specifies an extension that should be checked by the linter,
 - `--conf` is a path to a client's .eslintrc.* file.
 
-Youn cab specify as much `--dir` or `--ext` values as you like, but it should be only one `--conf` value.
+You can specify as much `--dir` or `--ext` values as you like, but it should be only one `--conf` value.
 
 If the path to a config file was not specified and there is no `.eslintrc.js` file in the root directory of the client app, the default config file will be used.
 

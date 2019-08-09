@@ -1,10 +1,10 @@
 # formatted-linting
 
-The `formatted-linting` is based on [CLIEngine API](https://eslint.org/docs/developer-guide/nodejs-api#cliengine) and does only one thing - prints a friendly message when ESLint has finished without any errors.
+The `formatted-linting` module is based on [CLIEngine API](https://eslint.org/docs/developer-guide/nodejs-api#cliengine) and extends [ESLint](https://github.com/eslint/eslint) tool in order to print additional information during the linting process.
 
 ![formatted-linting](./formatted-linting.png)
 
-This is sample project from [How to format ESLint output](https://medium.com/) blogpost, therefore it won't be published at npm.
+This is sample project from ["How to format ESLint output"](https://medium.com/) blogpost, therefore it won't be published at npm.
 
 To run it locally use npm package linking mechanism.
 
@@ -32,7 +32,7 @@ formatted-linting --dir <value> --ext <value> --conf <value>
 Where:
 - `--dir` is a directory to traverse for files,
 - `--ext` specifies an extension that should be checked by the linter,
-- `--conf` is a path to a client's .eslintrc.* file.
+- `--conf` is a path to a client `.eslintrc.js` file.
 
 You can specify as much `--dir` or `--ext` values as you like, but it should be only one `--conf` value.
 
@@ -52,7 +52,7 @@ module.exports = {
 };
 ```
 
-The `formatted-linting` by default extends a configuration called [eslint-config-standard](https://github.com/standard/eslint-config-standard). It also setts a `node` environment and switches off `semi` and `space-before-function-paren` rules, that is enabled by default in `eslint-config-standard`. The `eslint-plugin-json` plugin is required to be able to lint JSON files.
+The `formatted-linting` by default extends a configuration called [eslint-config-standard](https://github.com/standard/eslint-config-standard). It also setts a `node` environment and switches off `semi` and `space-before-function-paren` rules, that is enabled by default in `eslint-config-standard`. The `eslint-plugin-json` allows to lint JSON files.
 
 ## License
 [MIT](https://tldrlegal.com/license/mit-license)

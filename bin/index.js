@@ -42,7 +42,7 @@ module.exports = (() => {
   let filesDir = [];
 
   if (args.dir) {
-    // Dir can be a string or an array, we do preprocessing to always have an array
+    // Dir can be a string or an array, we do a preprocessing to always have an array
     filesDir = []
       .concat(args.dir)
       .map((item) => path.resolve(process.cwd(), item));

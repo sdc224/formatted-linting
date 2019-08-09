@@ -1,26 +1,30 @@
 #!/usr/bin/env node
 
-const minimist = require('minimist');
 const CLIEngine = require('eslint').CLIEngine;
+const minimist = require('minimist');
 const path = require('path');
 const chalk = require('chalk');
 
 module.exports = (() => {
   const args = minimist(process.argv.slice(2));
-  let configPath = path.resolve(__dirname, '../.eslintrc.js');
-  let config = require(configPath);
 
+  // Read a default eslint config
+  let configPath = path.resolve(__dirname, '../.eslintrc.js');
+  let baseConfig = require(configPath);
+
+  // Check if the path to a client config was specified
   if (args.conf) {
     try {
       configPath = path.resolve(process.cwd(), args.conf);
-      config = require(configPath);
+      baseConfig = require(configPath);
     } catch (error) {
       return console.log(error);
     }
   } else {
+    // Check if a client app has .eslintrc.js in the root directory
     try {
       configPath = path.resolve(process.cwd(), '.eslintrc.js');
-      config = require(configPath);
+      baseConfig = require(configPath);
     } catch (error) {
       return console.log(error);
     }
@@ -28,10 +32,11 @@ module.exports = (() => {
 
   console.log(`> eslint has loaded config from: ${configPath}`);
 
-  const cli = new CLIEngine(config);
+  const cli = new CLIEngine({ baseConfig });
   let filesDir = [];
 
   if (args.dir) {
+    // Dir can be a string or an array, we do preprocessing to always have an array
     filesDir = []
       .concat(args.dir)
       .map((item) => path.resolve(process.cwd(), item));

@@ -14,6 +14,12 @@ module.exports = (() => {
 
   // Check if the path to a client config was specified
   if (args.conf) {
+    if (Array.isArray(args.conf)) {
+      const error = chalk.bold.redBright(`> eslint requires a single config file`);
+
+      return console.log(error);
+    }
+
     try {
       configPath = path.resolve(process.cwd(), args.conf);
       baseConfig = require(configPath);

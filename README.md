@@ -4,7 +4,7 @@ The `formatted-linting` module is based on [CLIEngine API](https://eslint.org/do
 
 ![formatted-linting](./formatted-linting.png)
 
-This is a sample project from ["How to format ESLint output"](https://medium.com/) blogpost, therefore it won't be published at npm.
+This is a sample project from ["How to format ESLint output"](https://medium.com/@alena_khineika/how-to-format-eslint-output-cfaef4262204) blogpost, therefore it won't be published at npm.
 
 To run it locally use npm package linking mechanism:
 
